@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramjeet Singh | Energy Researcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 5px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--light-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 10px;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -13px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .project-tag {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        /* Education Section */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .education-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .education-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-right: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 20px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Paramjeet Singh</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Energy Researcher & Systems Modeler</h1>
+                <p>Driving the global energy transition through data-driven modeling and sustainable solutions</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am an energy researcher with extensive experience in clean energy, data analysis, and energy systems modeling. My work focuses on supporting the global transition to sustainable energy through innovative modeling techniques and strategic advisory.</p>
+                    <p>Currently, I'm contributing to the EU-funded IAM COMPACT HORIZON EUROPE project, developing Climate Land Energy Water (CLEWs) models using OSeMOSYS to support national scenario analysis for NDC updates and development plans.</p>
+                    <p>I'm seeking roles in Energy and Climate Consulting, Energy Transition, Energy Modeling, Sustainability Advisory, Climate Policy, Carbon Markets, Energy Systems Analysis, and Clean Tech & Net-Zero Strategy.</p>
+                    <a href="#contact" class="btn">Contact Me</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://placehold.co/250x250/3498db/FFFFFF?text=PS" alt="Paramjeet Singh">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f5f7fa;">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023 - Present</span>
+                        <h3>Research Engineer, Energy Modelling</h3>
+                        <h4>EU HORIZON, Sweden</h4>
+                        <p>Developing Climate Land Energy Water (CLEWs) model using OSeMOSYS, supporting national scenario analysis for NDC updates and development plans within the EU-funded IAM COMPACT HORIZON EUROPE project.</p>
+                        <p>Developing code and modeling for integrated Climate-Land-Energy-Water nexus assessments, including optimizing workflows for reporting key inputs and outputs.</p>
+                        <p>Collaborating with experts to collect input, refine models, and ensure long-term usability of model infrastructure.</p>
+                        <p>Deployed CLEWs Workflow for IAMC Community Use on GitHub.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 - 2023</span>
+                        <h3>Researcher, Energy Management of Carbon Capture</h3>
+                        <h4>SCANIA R&D, Sweden</h4>
+                        <p>Analyzed energy demand and emissions profiles of heavy-duty trucks to evaluate carbon capture potential.</p>
+                        <p>Conducted scenario analysis of CO₂ reduction under European certification standards.</p>
+                        <p>Estimation and Data Analysis of the reduction potential for tailpipe CO2 from different truck configurations under European certification conditions for Sustainable Transport.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2020 - 2022</span>
+                        <h3>Energy & Sustainability Roles</h3>
+                        <h4>US Energy Department, SEI, WNL Colombo, Akedmiska HUS, E40</h4>
+                        <p>Contributed to GHG Emission Modeling, data analysis to assess energy trends and integration of renewable and CCUS development of energy scenarios.</p>
+                        <p>Led energy management initiatives for Alnarp campus by analyzing demand and identifying opportunities to enhance sustainability.</p>
+                        <p>Managed feasibility study for a Hybrid Solar PV System at Wijeya Newspapers Ltd.</p>
+                        <p>Founded E40, repurposing second-life EV batteries to enhance value and extend their lifecycle for event industry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming & Data</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-code"></i> Python</li>
+                        <li><i class="fas fa-chart-line"></i> Pandas, NumPy, SciPy</li>
+                        <li><i class="fas fa-chart-bar"></i> Matplotlib, Seaborn, Plotly</li>
+                        <li><i class="fas fa-database"></i> Data Analysis</li>
+                        <li><i class="fas fa-project-diagram"></i> YAML</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Energy Modeling Tools</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-calculator"></i> OSeMOSYS</li>
+                        <li><i class="fas fa-bolt"></i> LEAP</li>
+                        <li><i class="fas fa-sun"></i> Homer Pro</li>
+                        <li><i class="fas fa-chart-pie"></i> FINPLAN</li>
+                        <li><i class="fas fa-chart-area"></i> Power BI</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-handshake"></i> Stakeholder Management</li>
+                        <li><i class="fas fa-comments"></i> Excellent Communication</li>
+                        <li><i class="fas fa-search"></i> Attention to Detail</li>
+                        <li><i class="fas fa-lightbulb"></i> Problem Solving</li>
+                        <li><i class="fas fa-users"></i> Rapport Building</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-language"></i> English (Fluent)</li>
+                        <li><i class="fas fa-language"></i> Swedish (Basic)</li>
+                        <li><i class="fas fa-language"></i> Eager to learn further</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background-color: #f5f7fa;">
+        <div class="container">
+            <h2>Projects & Initiatives</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>CLEWs Model Development</h3>
+                        <p>Developed Climate Land Energy Water models using OSeMOSYS for national scenario analysis within the EU-funded IAM COMPACT project.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">OSeMOSYS</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Energy Modeling</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Carbon Capture for Heavy-Duty Trucks</h3>
+                        <p>Analyzed energy demand and emissions profiles to evaluate carbon capture potential for Scania's heavy-duty truck fleet.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Carbon Capture</span>
+                            <span class="project-tag">Data Analysis</span>
+                            <span class="project-tag">Emissions</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Hybrid Solar PV System Feasibility</h3>
+                        <p>Managed technical assessments and strategic planning for a hybrid solar PV system at Wijeya Newspapers Ltd.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Solar Energy</span>
+                            <span class="project-tag">Feasibility Study</span>
+                            <span class="project-tag">Renewables</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>E40 - Second-Life EV Batteries</h3>
+                        <p>Founded initiative to repurpose second-life EV batteries to enhance value and extend their lifecycle for the event industry.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Batteries</span>
+                            <span class="project-tag">Circular Economy</span>
+                            <span class="project-tag">Sustainability</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Alnarp Campus Energy Management</h3>
+                        <p>Led energy management initiatives by analyzing demand and identifying opportunities to enhance sustainability.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Energy Management</span>
+                            <span class="project-tag">Campus Sustainability</span>
+                            <span class="project-tag">Renewables</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>GHG Emission Modeling</h3>
+                        <p>Contributed to GHG emission modeling and data analysis to support USA's transition to Net Zero Emissions by 2050.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">GHG Emissions</span>
+                            <span class="project-tag">Modeling</span>
+                            <span class="project-tag">Net Zero</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-container">
+                <div class="education-card">
+                    <span class="education-date">2022 - 2024</span>
+                    <h3>Dual Master's in Sustainable Energy and Energy Engineering</h3>
+                    <h4>EIT InnoEnergy – European Union</h4>
+                    <p>Year 1: KTH Royal Institute of Technology, Sweden - Sustainable Power Generation, Energy systems, Energy Policy</p>
+                    <p>Year 2: Universitat Politecnica de Catalunya, Spain - Hydrogen and Fuel cells, Energy Economy, Energy Storage</p>
+                    <p>Business Diploma: ESADE Business School, Spain - Energy Finance, Innovation and Strategy, Leadership</p>
+                </div>
+                
+                <div class="education-card">
+                    <span class="education-date">2014 - 2021</span>
+                    <h3>Bachelor's & Master's in Engineering (Thermal Power)</h3>
+                    <h4>Pune University, India</h4>
+                    <p>Ranked 1st in all semesters of Masters program</p>
+                    <p>Master Thesis: Battery Thermal Management System (BTMS) of EV on KULI Software Magna</p>
+                    <p>Bachelor Thesis: Fatigue Failure analysis of Crank pin of Crank Shaft of Two stroke Engine</p>
+                </div>
+                
+                <div class="education-card">
+                    <span class="education-date">Achievement</span>
+                    <h3>Energy Impact Scholar</h3>
+                    <h4>EU-funded EIT InnoEnergy</h4>
+                    <p>Awarded fully funded scholarship by the EU-funded EIT InnoEnergy to pursue MSc in Renewable Energy (RENE).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f5f7fa;">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+46 72 771 1002</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Stockholm, Sweden</span>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Paramjeet Singh</h3>
+                <p>Energy Researcher & Systems Modeler | Driving the Global Energy Transition</p>
+                <ul class="footer-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <p>&copy; 2023 Paramjeet Singh. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
